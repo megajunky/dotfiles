@@ -1,7 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/julius/.config/ranger'
-let g:netrw_dirhist_2='/home/julius/.oh-my-zsh/custom'
-let g:netrw_dirhist_3='/home/julius/.config/zathura'
-let g:netrw_dirhist_4='/home/julius/Downloads/untermietvertrag'
-let g:netrw_dirhist_5='/home/julius/.config/i3status'
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/julius/.config/pacmixer'
+let g:netrw_dirhist_5='/home/julius/.config/alacritty'
+let g:netrw_dirhist_4='/home/julius/.config/nitrogen'
+let g:netrw_dirhist_3='/home/julius/.config/i3status'
+let g:netrw_dirhist_2='/home/julius/.config/nvim/after/ftplugin'
+let g:netrw_dirhist_1='/home/julius/.config/zathura'

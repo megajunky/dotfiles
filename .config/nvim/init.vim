@@ -5,9 +5,10 @@ set softtabstop=4
 set splitbelow
 set splitright
 
-set number
-set scrolloff=7
+set relativenumber number
+set scrolloff=4
 set nowrap
+set nohls
 
 let mapleader = ','
 let maplocalleader = ','
@@ -16,16 +17,25 @@ let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_view_method = 'zathura'
 let g:tex_flavor = 'latex'
 
-let g:UltiSnipsExpandTrigger="<c-z>"
-let g:UltiSnipsJumpForwardTrigger="<c-z>"
-let g:UltiSnipsJumpBackwardTrigger="<c-x>"
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+let g:ale_cache_executable_check_failures = 1
+
+"Change fieltype for .asm files to nasm
+autocmd BufNewFile,BufRead *.asm set filetype=nasm
 
 "Enable shortcuts for copy/past to clipboard
-nnoremap <leader>v "+p
-vnoremap <leader>c "+y
+nnoremap <leader>p "+p
+vnoremap <leader>y "+y
 vnoremap <leader>x "+x
 
-inoremap <C-f> <ESC>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 vnoremap <C-f> <ESC>
 onoremap <C-f> <ESC>
 cnoremap <C-f> <C-c><ESC>
@@ -43,6 +53,15 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 "Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-user'
+Plug 'christoomey/vim-sort-motion'
 Plug 'lervag/vimtex'
 Plug 'chriskempson/base16-vim'
 Plug 'w0rp/ale'
