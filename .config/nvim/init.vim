@@ -1,76 +1,82 @@
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+let mapleader =","
 
+if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
+	echo "Downloading junegunn/vim-plug to manage plugins..."
+	silent !mkdir -p ~/.config/nvim/autoload/
+	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.config/nvim/autoload/plug.vim
+endif
+
+call plug#begin('~/.config/nvim/plugged')
+Plug 'scrooloose/nerdtree'
+call plug#end()
+
+" Some basics:
+nnoremap c "_c
+set nocompatible
+filetype plugin on
+syntax on
+set encoding=utf-8
+set printencoding=utf-8
+set printoptions=paper:a4
+set number
+set relativenumber
+filetype plugin on
+
+" Enable autocompletion:
+set wildmode=longest,list,full
+
+" Disables automatic commenting on newline:
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+
+" Spell-check set to <leader>o, 'o' for 'orthography':
+map <leader>o :setlocal spell! spelllang=en_us<CR>
+
+" Colors
+set background=dark
+"colorscheme base16_default-dark
+
+" Get syntax
+syntax on
+
+" Sane split
 set splitbelow
 set splitright
 
-set relativenumber number
-set scrolloff=4
-set nowrap
-set nohls
+" Nerd tree
+map <leader>n :NERDTreeToggle<CR>
+set softtabstop=4
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
-let mapleader = ','
-let maplocalleader = ','
+" Proper search
+set incsearch
+set ignorecase
+set smartcase
+set gdefault
 
-let g:vimtex_compiler_progname = 'nvr'
-let g:vimtex_view_method = 'zathura'
-let g:tex_flavor = 'latex'
+" Shortcutting split navigation, saving a keypress:
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+map H ^
+map L $
 
-let g:ale_cache_executable_check_failures = 1
+" Disable Arrow keys
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <right> <nop>
+nnoremap <left> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <right> <nop>
+inoremap <left> <nop>
 
-"Change fieltype for .asm files to nasm
-autocmd BufNewFile,BufRead *.asm set filetype=nasm
+" Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
+vnoremap <C-c> "+y
+map <C-p> "+P
 
-"Enable shortcuts for copy/past to clipboard
-nnoremap <leader>p "+p
-vnoremap <leader>y "+y
-vnoremap <leader>x "+x
 
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-vnoremap <C-f> <ESC>
-onoremap <C-f> <ESC>
-cnoremap <C-f> <C-c><ESC>
-
-noremap <C-s> <ESC>:w<CR>
-noremap! <C-s> <ESC>:w<CR>
-
-nnoremap <F2> :NERDTreeToggle<CR>
-nnoremap <leader>ev :split $MYVIMRC<CR>
-
-"""""""""""""""""""""""""
-""""    vim-plug     """"
-"""""""""""""""""""""""""
-call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-"Plug 'majutsushi/tagbar'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-line'
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-user'
-Plug 'christoomey/vim-sort-motion'
-Plug 'lervag/vimtex'
-Plug 'chriskempson/base16-vim'
-Plug 'w0rp/ale'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-"Plug 'ludovicchabant/vim-gutentags'
-Plug 'Valloric/YouCompleteMe'
-
-call plug#end()
-
-let base16colorspace=256
-colorscheme base16-atelier-dune
