@@ -32,6 +32,10 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Spell-check set to <leader>o, 'o' for 'orthography':
 map <leader>o :setlocal spell! spelllang=en_us<CR>
 
+" Reload and Edit VIMRC
+map <leader>vr :so $MYVIMRC<CR>
+map <leader>ve :sp $MYVIMRC<CR>
+
 " Colors
 set background=dark
 "colorscheme base16_default-dark
@@ -55,6 +59,7 @@ set incsearch
 set ignorecase
 set smartcase
 set gdefault
+set nohls
 
 " Shortcutting split navigation, saving a keypress:
 map <C-h> <C-w>h
