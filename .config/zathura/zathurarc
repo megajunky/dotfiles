@@ -46,6 +46,6 @@ set recolor-darkcolor           "#e8e4cf"
 #inverte the pdf
 map y recolor 
 
-set recolor                     "true"
+set recolor                     "false"
 set recolor-keephue             "true"
 set guioptions					""
