@@ -2,9 +2,17 @@
 set zoom-step 15
 set scroll-step 40
 
+#set clipboard to system clipboard
 set selection-clipboard clipboard
 set selection-notification false
 set adjust-open "width"
+
+#inverte the pdf
+map y recolor 
+
+set recolor                     "true"
+set recolor-keephue             "true"
+set guioptions					""
 
 set synctex-editor-command nvim
 
@@ -42,6 +50,7 @@ set completion-highlight-bg     "#6684e1"
 
 set recolor-lightcolor          "#20201d"
 set recolor-darkcolor           "#e8e4cf"
+<<<<<<< HEAD
 
 #inverte the pdf
 map y recolor 
@@ -49,3 +58,5 @@ map y recolor
 set recolor                     "false"
 set recolor-keephue             "true"
 set guioptions					""
+=======
+>>>>>>> 3f3ac74cf8a44c264f6a24b88f64029f1c40c2ea
