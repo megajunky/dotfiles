@@ -36,9 +36,10 @@ bindsym $mod+z              exec zathura
 bindsym XF86AudioPlay       exec "notify-send 'Play'"
 
 # Screen Shots
-bindsym Print exec scrot -u '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
-bindsym Ctrl+Print exec sleep 0.2 && scrot -s '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
-bindsym Ctrl+Shift+Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
+set $screenshotfolder ~/Pictures/screenshots
+bindsym Print exec scrot -u '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $screenshotfolder'
+bindsym Ctrl+Print exec sleep 0.2 && scrot -s '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $screenshotfolder'
+bindsym Ctrl+Shift+Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $screenshotfolder'
 
 # change focus
 bindsym $mod+h              focus left
